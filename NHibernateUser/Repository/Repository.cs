@@ -65,7 +65,7 @@ namespace NHibernateUser.Repository
                 return customer;
             }
 
-            }
+        }
 
         public Customer GetByUserName(string UserName)
         {

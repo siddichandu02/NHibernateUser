@@ -14,7 +14,7 @@ namespace NHibernateUser.Controllers
     public class CustomerController : Controller
     {
         IRepository repository = null;
-       public  CustomerController(IRepository repository)
+        public  CustomerController(IRepository repository)
         {
             this.repository = repository;
         }

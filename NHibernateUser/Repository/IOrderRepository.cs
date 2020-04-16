@@ -5,7 +5,12 @@ using System.Web;
 
 namespace NHibernateUser.Repository
 {
-    public class IStoreInfoRepository
+    public interface IOrderRepository
     {
+        IEnumerable<Orders> GetAll();
+        Orders GetById(int orderId);
+        void InsertOrUpdate(Orders order);
+        void Delete(int orderId);
+        void Save();
     }
 }

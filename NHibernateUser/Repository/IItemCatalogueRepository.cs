@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace NHibernateUser.Repository
 {
-    interface IItemCatalogueRepository
+    public interface IItemCatalogueRepository
     {
+        ItemsCatalogue GetById(int id);
+        Enumerable<ItemsCatalogue> GetAll();
     }
 }

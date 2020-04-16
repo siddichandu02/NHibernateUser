@@ -153,13 +153,19 @@
     <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Installers\RepositoryInstaller.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
+    <Compile Include="Repository\IItemCatalogueRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IStoreInfoRepository.cs" />
+    <Compile Include="Repository\IOrderRepository.cs" />
+    <Compile Include="Repository\ItemCatalogueRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\NhibernateSession.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\StoreInfoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
