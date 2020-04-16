@@ -16,5 +16,6 @@ namespace NHibernateUser.Repository
         void Update(Customer customer,string UserName);
         void Delete(string UserName);
         void Save();
+        bool checkUserName(string UserName);
     }
 }

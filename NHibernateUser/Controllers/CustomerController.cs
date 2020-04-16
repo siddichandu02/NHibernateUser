@@ -50,17 +50,12 @@ namespace NHibernateUser.Controllers
                 customer.LastName = collection["LastName"].ToString();
                 customer.Password = collection["Password"].ToString();
                 customer.PhoneNumber = collection["PhoneNumber"].ToString();
+                if(repository.checkUserName(customer.UserName) == false)
+                {
+                    return RedirectToAction("Index");
+                }
                 repository.Insert(customer);
-
-                //using (ISession session = NhibernateSession.OpenSession())
-                //{
-                //    using (ITransaction transaction = session.BeginTransaction())
-                //    {
-                        
-                //        session.Save(customer);
-                //        transaction.Commit();
-                //    }
-                //}
+                                
                 return RedirectToAction("Index");
 
             }

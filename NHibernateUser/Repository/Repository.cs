@@ -11,13 +11,29 @@ namespace NHibernateUser.Repository
 {
     public class Repository: IRepository
     {
-     
-        //public Repository(EmployeeEntity _context)
-        //{
-        //    this._context = _context;
-        //    table = _context.Set<T>();
-        //}
+        public bool checkUserName(string UserName)
+        {
+            try
+            {
 
+                using (ISession session = NhibernateSession.OpenSession())
+                {
+                    
+                    var User = session.Get<Customer>(UserName);
+                    if (User == null)
+                    {
+                        return true;
+                    }
+                    else return false;
+                }
+
+            }
+            catch
+            {
+                return false;
+            }
+            
+        }     
         public void Delete(string UserName)
         {
             try
@@ -55,8 +71,7 @@ namespace NHibernateUser.Repository
         {
             using (ISession session = NhibernateSession.OpenSession())
             {
-                //var customertoDelete = session.Get<Customer>(UserName);
-
+                
                 var customer = session.Get<Customer>(UserName);
                 return customer;
             }
@@ -78,7 +93,6 @@ namespace NHibernateUser.Repository
                         transaction.Commit();
                     }
                 }
-               // return RedirectToAction("Index");
 
             }
             catch (Exception exe)
