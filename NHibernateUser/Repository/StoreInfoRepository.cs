@@ -5,7 +5,7 @@ using System.Web;
 
 namespace NHibernateUser.Repository
 {
-    public class OrderRepository
+    public class StoreInfoRepository
     {
     }
 }
