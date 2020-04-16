@@ -10,10 +10,10 @@ namespace NHibernateUser.Repository
 {
     public interface IRepository
     {
-        IEnumerable<Customer> GetAll();
-        Customer GetByUserName(string UserName);
-        void Insert(Customer customer);
-        void Update(Customer customer,string UserName);
+        IEnumerable<Users> GetAll();
+        Users GetByUserName(string UserName);
+        void Insert(Users customer);
+        void Update(Users customer,string UserName);
         void Delete(string UserName);
         void Save();
     }

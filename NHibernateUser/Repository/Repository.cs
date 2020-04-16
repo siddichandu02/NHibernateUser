@@ -18,18 +18,18 @@ namespace NHibernateUser.Repository
         //    table = _context.Set<T>();
         //}
 
-        public void Delete(string UserName)
+        public void Delete(string Username)
         {
             try
             {
 
                 using (ISession session = NhibernateSession.OpenSession())
                 {
-                    var customertoDelete = session.Get<Customer>(UserName);
+                    var usertoDelete = session.Get<Users>(Username);
 
                     using (ITransaction transaction = session.BeginTransaction())
                     {
-                        session.Delete(customertoDelete);
+                        session.Delete(usertoDelete);
                         transaction.Commit();
                     }
                 }
@@ -41,29 +41,29 @@ namespace NHibernateUser.Repository
             }
         }
 
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<Users> GetAll()
         {
             using (ISession session = NhibernateSession.OpenSession())
             {
-                var customer = session.Query<Customer>().ToList();
-                return customer;
+                var user = session.Query<Users>().ToList();
+                return user;
             }
 
             }
 
-        public Customer GetByUserName(string UserName)
+        public Users GetByUserName(string Username)
         {
             using (ISession session = NhibernateSession.OpenSession())
             {
                 //var customertoDelete = session.Get<Customer>(UserName);
 
-                var customer = session.Get<Customer>(UserName);
-                return customer;
+                var user = session.Get<Users>(Username);
+                return user;
             }
 
         }
 
-        public void Insert(Customer customer)
+        public void Insert(Users user)
         {
             try
             {
@@ -74,7 +74,7 @@ namespace NHibernateUser.Repository
                     using (ITransaction transaction = session.BeginTransaction())
                     {
 
-                        session.Save(customer);
+                        session.Save(user);
                         transaction.Commit();
                     }
                 }
@@ -91,26 +91,26 @@ namespace NHibernateUser.Repository
         {
         }
 
-        public void Update(Customer customer,string UserName)
+        public void Update(Users user,string Username)
         {
             try
             {
                 using (ISession session = NhibernateSession.OpenSession())
                 {
-                    var customertoUpdate = session.Get<Customer>(UserName);
+                    var usertoUpdate = session.Get<Users>(Username);
 
 
 
-                    customertoUpdate.Password = customer.Password;
-                    customertoUpdate.FirstName = customer.FirstName;
-                    customertoUpdate.LastName = customer.LastName;
-                    customertoUpdate.PhoneNumber = customer.PhoneNumber;
+                    usertoUpdate.UserPassword = user.UserPassword;
+                    usertoUpdate.Firstname = user.Firstname;
+                    usertoUpdate.Lastname = user.Lastname;
+                    usertoUpdate.Phone = user.Phone;
 
 
 
                     using (ITransaction transaction = session.BeginTransaction())
                     {
-                        session.Save(customertoUpdate);
+                        session.Save(usertoUpdate);
                         transaction.Commit();
                     }
                 }

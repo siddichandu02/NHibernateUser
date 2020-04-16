@@ -5,17 +5,17 @@
    assembly="NHibernateUser"
    namespace="NHibernateUser.Domain">
 
-  <class name="Customer" table="Customer" dynamic-update="true" >
+  <class name="Users" table="Users" dynamic-update="true" >
     <cache usage="read-write"/>
-    <id name="UserName" column="UserName" type="string">
+    <id name="Username" column="Username" type="string">
       <!--<generator class="identity" />-->
     </id>
     <!--<property name="UserName"  />-->
-    <property name="FirstName"  />
-    <property name="LastName"  />
-    <property name="Password"  />
+    <property name="Firstname"  />
+    <property name="Lastname"  />
+    <property name="UserPassword"  />
 
-    <property name="PhoneNumber"  />
+    <property name="Phone"  />
     
   </class>
 
